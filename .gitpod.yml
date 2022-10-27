@@ -1,0 +1,22 @@
+# List the start up tasks. Learn more https://www.gitpod.io/docs/config-start-tasks/
+tasks:
+  - init: |
+      yarn install
+      yarn build
+      cd web
+      composer install
+      bin/rails app:template LOCATION=./template.rb
+      cd ..
+
+# List the ports to expose. Learn more https://www.gitpod.io/docs/config-ports/
+ports:
+  - name: Shopify CLI
+    description: Entry point for the CLI local server
+    port: 4040
+    visibility: public
+    onOpen: ignore
+
+github:
+    prebuilds:
+      # enable for the main branch
+      main: true
